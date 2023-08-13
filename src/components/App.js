@@ -3,7 +3,7 @@ import Signup from "./Signup/Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import { Routes, Route } from "react-router-dom";
 import Welcome from "../pages/Welcome/Welcome";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import Profile from "../pages/Profile/Profile";
 import Login from "./Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
@@ -19,7 +19,7 @@ function App() {
             path="/"
             element={
               <PrivateRoute>
-                <Welcome />
+                <Home />
               </PrivateRoute>
             }
           />
@@ -36,6 +36,14 @@ function App() {
             element={
               <PrivateRoute>
                 <Welcome />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
               </PrivateRoute>
             }
           />
