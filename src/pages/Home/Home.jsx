@@ -1,5 +1,6 @@
 import React from "react";
+import NavBarGuest from "../../components/NavBar/NavBarGuest";
 
-export default function home() {
-  return <>This is the Home Page</>;
+export default function Home() {
+  return <NavBarGuest />;
 }

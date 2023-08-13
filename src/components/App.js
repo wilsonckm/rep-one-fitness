@@ -8,6 +8,7 @@ import Login from "./Login/Login";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
+import Home from "../pages/Home/Home";
 
 function App() {
   return (
@@ -38,6 +39,8 @@ function App() {
               </PrivateRoute>
             }
           />
+
+          <Route path="/home" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
