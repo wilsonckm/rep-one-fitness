@@ -9,20 +9,15 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import ForgotPassword from "./ForgotPassword/ForgotPassword";
 import UpdateProfile from "./UpdateProfile/UpdateProfile";
 import Home from "../pages/Home/Home";
+import Workouts from "../pages/Workouts/Workouts";
+import NewWorkouts from "../pages/NewWorkouts.jsx/NewWorkouts";
+import NavBarUser from "./NavBar/NavBarUser";
 
 function App() {
   return (
     <>
       <AuthProvider>
         <Routes>
-          <Route
-            path="/"
-            element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>
-            }
-          />
           <Route
             path="/update-profile"
             element={
@@ -47,8 +42,24 @@ function App() {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/workouts"
+            element={
+              <PrivateRoute>
+                <Workouts />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/workouts/new"
+            element={
+              <PrivateRoute>
+                <NewWorkouts />
+              </PrivateRoute>
+            }
+          />
 
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />

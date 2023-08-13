@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
-import "./NavBarUser.css"; // Import a separate CSS file for custom styling
+import "./NavBarUser.css";
 
 export default function NavBarUser() {
   return (
@@ -17,7 +17,7 @@ export default function NavBarUser() {
           </Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link>
-              <Link to="/" className="nav-link">
+              <Link to="/welcome" className="nav-link">
                 Home
               </Link>
             </Nav.Link>
