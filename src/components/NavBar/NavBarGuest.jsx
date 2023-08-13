@@ -17,7 +17,7 @@ export default function NavBarGuest() {
           </Navbar.Brand>
           <Nav className="ml-auto">
             <Nav.Link>
-              <Link to="/welcome" className="nav-link">
+              <Link to="/" className="nav-link">
                 Home
               </Link>
             </Nav.Link>
@@ -27,8 +27,13 @@ export default function NavBarGuest() {
               </Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/signin" className="nav-link">
-                Sign In
+              <Link to="/contact" className="nav-link">
+                Contact
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/signup" className="nav-link">
+                Sign Up
               </Link>
             </Nav.Link>
           </Nav>

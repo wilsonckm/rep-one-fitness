@@ -12,6 +12,8 @@ import Home from "../pages/Home/Home";
 import Workouts from "../pages/Workouts/Workouts";
 import NewWorkouts from "../pages/NewWorkouts.jsx/NewWorkouts";
 import NavBarUser from "./NavBar/NavBarUser";
+import About from "../pages/About/About";
+import Contact from "../pages/Contact/Contact";
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </AuthProvider>
     </>

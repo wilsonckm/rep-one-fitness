@@ -21,7 +21,7 @@ export default function Login() {
         emailRef.current.value,
         passwordRef.current.value
       );
-      navigate("/");
+      navigate("/welcome");
     } catch (error) {
       console.error("Error with account sign up:", error);
       setError("Failed to Log In");

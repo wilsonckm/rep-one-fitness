@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useAuth } from "../../contexts/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import NavBarGuest from "../NavBar/NavBarGuest";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -21,7 +22,7 @@ export default function Signup() {
       setError("");
       setLoading(true); //Added to prevent multiple signups--disables submit when true
       await createNewUser(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      navigate("/welcome");
     } catch (error) {
       console.error("Error with account sign up:", error);
       if (error.code === "auth/email-already-in-use") {
@@ -37,6 +38,7 @@ export default function Signup() {
 
   return (
     <>
+      <NavBarGuest />
       <Container
         className="d-flex align-items-center justify-content-center"
         style={{ minHeight: "100vh" }}
