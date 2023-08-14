@@ -1,9 +1,9 @@
-.nav-link {
+link {
   text-decoration: none;
   color: inherit;
 }
 
-.nav-link:hover {
+link:hover {
   text-decoration: none;
   color: #007bff;
 }

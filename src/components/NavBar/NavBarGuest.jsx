@@ -16,26 +16,21 @@ export default function NavBarGuest() {
             </Link>
           </Navbar.Brand>
           <Nav className="ml-auto">
-            <Nav.Link>
-              <Link to="/" className="nav-link">
-                Home
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/about" className="nav-link">
-                About
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/contact" className="nav-link">
-                Contact
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/signup" className="nav-link">
-                Sign Up
-              </Link>
-            </Nav.Link>
+            <Link to="/" className="nav-link">
+              Home
+            </Link>
+
+            <Link to="/about" className="nav-link">
+              About
+            </Link>
+
+            <Link to="/contact" className="nav-link">
+              Contact
+            </Link>
+
+            <Link to="/signup" className="nav-link">
+              Sign Up
+            </Link>
           </Nav>
         </Container>
       </Navbar>
