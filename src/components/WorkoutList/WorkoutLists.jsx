@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot, deleteDoc } from "firebase/firestore";
+import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
 import { db } from "../../firebase";
 import WorkoutItem from "../WorkoutItem/WorkoutItem";
 import { Button } from "react-bootstrap";
@@ -26,7 +26,8 @@ function WorkoutsList() {
 
   const handleDeleteWorkout = async (workoutId) => {
     try {
-      await deleteDoc(workoutsCollectionRef.doc(workoutId));
+      await deleteDoc(doc(db, "workouts", workoutId));
+      console.log("Delete testing");
     } catch (error) {
       console.error("Error deleting workout:", error);
     }
