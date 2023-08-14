@@ -37,20 +37,6 @@ function WorkoutsList() {
       return () => unsubscribe();
     }
   }, [currentUser]);
-  //   useEffect(() => {
-  //     const unsubscribe = onSnapshot(workoutsCollectionRef, (querySnapshot) => {
-  //       const workoutData = [];
-  //       querySnapshot.forEach((doc) => {
-  //         workoutData.push({
-  //           id: doc.id,
-  //           ...doc.data(),
-  //         });
-  //       });
-  //       setWorkoutList(workoutData);
-  //     });
-
-  //     return () => unsubscribe();
-  //   }, []);
 
   const handleDeleteWorkout = async (workoutId) => {
     try {

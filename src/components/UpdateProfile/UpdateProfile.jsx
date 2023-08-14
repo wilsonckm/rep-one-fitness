@@ -23,7 +23,7 @@ export default function UpdateProfile() {
       return setError("Passwords do not match");
     }
 
-    // const promises = [];
+    const promises = [];
     if (emailRef.current.value !== currentUser.email) {
       updateEmailFunction(currentUser, emailRef.current.value);
     }
@@ -33,19 +33,6 @@ export default function UpdateProfile() {
         updatePasswordFunction(currentUser, passwordRef.current.value)
       );
     }
-
-    // Promise.all(promises)
-    //   .then(() => {
-    //     navigate("/");
-    //   })
-    //   .catch((error) => {
-    //     console.error("Failed to update account:", error);
-    //     setError("Failed to update account");
-    //   })
-
-    //   .finally(() => {
-    //     setLoading(false);
-    //   });
   }
 
   return (
