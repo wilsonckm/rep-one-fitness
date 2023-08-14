@@ -1,20 +1,60 @@
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
+import "./NavBarUser.css";
 
-export default function NavBarUser({ user }) {
+export default function NavBarUser() {
   return (
-    <nav>
-      <span> Exercise Co</span>
-      <Link to="/workouts">All Workouts</Link>
-      &nbsp; | &nbsp;
-      <Link to="/workouts/new">New Workout</Link>
-      &nbsp;&nbsp;
-      <Link to="/search">Search Exercises</Link>
-      &nbsp;&nbsp;
-      {/* <Link to="/workouts/new">New Workout</Link> */}
-      &nbsp;&nbsp;
-      <span>Welcome, {user}</span>
-      {/* <Link to="/profile/">Profile</Link> */}
-      &nbsp;&nbsp; &nbsp;&nbsp;
-    </nav>
+    <>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container>
+          <Navbar.Brand>
+            <Link className="nav-link" to="/welcome">
+              Exercise co
+            </Link>
+          </Navbar.Brand>
+          <Nav className="ml-auto">
+            <Nav.Link>
+              <Link to="/welcome" className="nav-link">
+                Home
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/workouts" className="nav-link">
+                All Workouts
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/workouts/new" className="nav-link">
+                New Workout
+              </Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/profile" className="nav-link">
+                Log Out
+              </Link>
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
+    </>
   );
 }
+
+// <nav class="nav nav-masthead justify-content-center float-md-end">
+// <a
+// class="nav-link fw-bold py-1 px-0 active"
+// aria-current="page"
+// href="#"
+// >
+// Home
+// </a>
+// <a class="nav-link fw-bold py-1 px-0" href="#">
+// Features
+// </a>
+// <a class="nav-link fw-bold py-1 px-0" href="#">
+// Contact
+// </a>
+// </nav>

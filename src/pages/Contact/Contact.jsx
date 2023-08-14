@@ -1,12 +1,11 @@
 import React from "react";
 import NavBarGuest from "../../components/NavBar/NavBarGuest";
-import "./Home.css";
 
-export default function Home() {
+export default function Contact() {
   return (
     <>
       <NavBarGuest />
-      <div>Home Page</div>
+      <div>Contact</div>
     </>
   );
 }
