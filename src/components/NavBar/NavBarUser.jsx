@@ -16,45 +16,24 @@ export default function NavBarUser() {
             </Link>
           </Navbar.Brand>
           <Nav className="ml-auto">
-            <Nav.Link>
-              <Link to="/welcome" className="nav-link">
-                Home
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/workouts" className="nav-link">
-                All Workouts
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/workouts/new" className="nav-link">
-                New Workout
-              </Link>
-            </Nav.Link>
-            <Nav.Link>
-              <Link to="/profile" className="nav-link">
-                Log Out
-              </Link>
-            </Nav.Link>
+            <Link to="/welcome" className="nav-link">
+              Home
+            </Link>
+
+            <Link to="/workouts" className="nav-link">
+              All Workouts
+            </Link>
+
+            <Link to="/workouts/new" className="nav-link">
+              New Workout
+            </Link>
+
+            <Link to="/profile" className="nav-link">
+              Log Out
+            </Link>
           </Nav>
         </Container>
       </Navbar>
     </>
   );
 }
-
-// <nav class="nav nav-masthead justify-content-center float-md-end">
-// <a
-// class="nav-link fw-bold py-1 px-0 active"
-// aria-current="page"
-// href="#"
-// >
-// Home
-// </a>
-// <a class="nav-link fw-bold py-1 px-0" href="#">
-// Features
-// </a>
-// <a class="nav-link fw-bold py-1 px-0" href="#">
-// Contact
-// </a>
-// </nav>
