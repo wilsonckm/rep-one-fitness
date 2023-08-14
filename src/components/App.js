@@ -14,7 +14,7 @@ import NewWorkouts from "../pages/NewWorkouts.jsx/NewWorkouts";
 import NavBarUser from "./NavBar/NavBarUser";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
-import EditWorkout from "../pages/EditWorkout/EditWorkout";
+import EditWorkout from "../pages/Edit/EditWorkout";
 
 function App() {
   return (

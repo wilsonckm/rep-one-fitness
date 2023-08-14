@@ -1,28 +1,42 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
+import {
+  collection,
+  onSnapshot,
+  deleteDoc,
+  doc,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../../firebase";
 import WorkoutItem from "../WorkoutItem/WorkoutItem";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 function WorkoutsList() {
   const [workoutList, setWorkoutList] = useState([]);
+  const { currentUser } = useAuth();
   const workoutsCollectionRef = collection(db, "workouts");
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(workoutsCollectionRef, (querySnapshot) => {
-      const workoutData = [];
-      querySnapshot.forEach((doc) => {
-        workoutData.push({
-          id: doc.id,
-          ...doc.data(),
-        });
-      });
-      setWorkoutList(workoutData);
-    });
+    if (currentUser) {
+      const userUid = currentUser.uid;
+      const q = query(workoutsCollectionRef, where("userId", "==", userUid));
 
-    return () => unsubscribe();
-  }, []);
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const workoutData = [];
+        querySnapshot.forEach((doc) => {
+          workoutData.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+        setWorkoutList(workoutData);
+      });
+
+      return () => unsubscribe();
+    }
+  }, [currentUser]);
 
   const handleDeleteWorkout = async (workoutId) => {
     try {
