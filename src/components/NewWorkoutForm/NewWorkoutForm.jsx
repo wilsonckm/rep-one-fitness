@@ -13,18 +13,14 @@ export default function NewWorkoutForm() {
   const currentUser = auth.currentUser;
   const [newWorkoutTitle, setNewWorkoutTitle] = useState("");
   const [newWorkoutDate, setNewWorkoutDate] = useState("");
-  const [exercise, setExercise] = useState({
-    exerciseName: "",
-    sets: 1,
-    reps: 1,
-    weight: 0,
-  });
+  const [exercises, setExercises] = useState([
+    { exerciseName: "", sets: 1, reps: 1, weight: 0 },
+  ]);
 
-  const handleExerciseChange = (field, value) => {
-    setExercise((prevExercise) => ({
-      ...prevExercise,
-      [field]: value,
-    }));
+  const handleExerciseChange = (exerciseIndex, field, value) => {
+    const updatedExercises = [...exercises];
+    updatedExercises[exerciseIndex][field] = value;
+    setExercises(updatedExercises);
   };
 
   const onSubmitWorkout = async (e) => {
@@ -37,13 +33,20 @@ export default function NewWorkoutForm() {
           userId: userUid,
           title: newWorkoutTitle,
           date: newWorkoutDate,
-          exercises: [exercise],
+          exercises: exercises, // Use the array of exercises
         });
         navigate("/workouts");
       }
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const addExercise = () => {
+    setExercises([
+      ...exercises,
+      { exerciseName: "", sets: 1, reps: 1, weight: 0 },
+    ]);
   };
 
   return (
@@ -78,60 +81,79 @@ export default function NewWorkoutForm() {
                     required
                   />
                 </Form.Group>
-                <Form.Group>
-                  <Form.Label>Exercise Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter exercise name..."
-                    value={exercise.exerciseName}
-                    onChange={(e) =>
-                      handleExerciseChange("exerciseName", e.target.value)
-                    }
-                    required
-                  />
-                </Form.Group>
-                <Form.Group>
-                  <Form.Label>Number of Sets</Form.Label>
-                  <Form.Control
-                    type="number"
-                    placeholder="Enter the number of sets (e.g., 3)"
-                    value={exercise.sets}
-                    onChange={(e) =>
-                      handleExerciseChange("sets", Number(e.target.value))
-                    }
-                    required
-                  />
-                </Form.Group>
-                {exercise.sets > 0 && (
-                  <div>
+                {exercises.map((exercise, exerciseIndex) => (
+                  <div key={exerciseIndex}>
                     <Form.Group>
-                      <Form.Label>Reps</Form.Label>
+                      <Form.Label>Exercise Name</Form.Label>
                       <Form.Control
-                        type="number"
-                        placeholder="Enter reps (e.g., 8)"
-                        value={exercise.reps}
+                        type="text"
+                        placeholder="Enter exercise name..."
+                        value={exercise.exerciseName}
                         onChange={(e) =>
-                          handleExerciseChange("reps", Number(e.target.value))
+                          handleExerciseChange(
+                            exerciseIndex,
+                            "exerciseName",
+                            e.target.value
+                          )
                         }
                         required
                       />
                     </Form.Group>
                     <Form.Group>
-                      <Form.Label>Weight (lbs)</Form.Label>
+                      <Form.Label>Number of Sets</Form.Label>
                       <Form.Control
                         type="number"
-                        placeholder="Enter weight (e.g., 50)"
-                        value={exercise.weight}
+                        placeholder="Enter the number of sets (e.g., 3)"
+                        value={exercise.sets}
                         onChange={(e) =>
-                          handleExerciseChange("weight", Number(e.target.value))
+                          handleExerciseChange(
+                            exerciseIndex,
+                            "sets",
+                            Number(e.target.value)
+                          )
                         }
                         required
                       />
                     </Form.Group>
+                    {exercise.sets > 0 && (
+                      <div>
+                        <Form.Group>
+                          <Form.Label>Reps</Form.Label>
+                          <Form.Control
+                            type="number"
+                            placeholder="Enter reps (e.g., 8)"
+                            value={exercise.reps}
+                            onChange={(e) =>
+                              handleExerciseChange(
+                                exerciseIndex,
+                                "reps",
+                                Number(e.target.value)
+                              )
+                            }
+                            required
+                          />
+                        </Form.Group>
+                        <Form.Group>
+                          <Form.Label>Weight (lbs)</Form.Label>
+                          <Form.Control
+                            type="number"
+                            placeholder="Enter weight (e.g., 50)"
+                            value={exercise.weight}
+                            onChange={(e) =>
+                              handleExerciseChange(
+                                exerciseIndex,
+                                "weight",
+                                Number(e.target.value)
+                              )
+                            }
+                            required
+                          />
+                        </Form.Group>
+                      </div>
+                    )}
                   </div>
-                )}
-                {/* Commented out the "Add Exercise" button */}
-                {/* <Button onClick={addExercise}>Add Exercise</Button> */}
+                ))}
+                <Button onClick={addExercise}>Add Exercise</Button>
                 <Button className="w-100 mt-2" type="submit">
                   Add Workout
                 </Button>
