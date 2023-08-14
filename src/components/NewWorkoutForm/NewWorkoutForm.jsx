@@ -1,46 +1,51 @@
-import React, { useEffect, useState } from "react";
-import NavBarUser from "../../components/NavBar/NavBarUser";
-import { db } from "../../firebase";
+import React, { useState } from "react";
+import { db, auth } from "../../firebase";
 import { Form, Button, Card, Alert, Container } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import {
-  setDoc,
-  doc,
-  collection,
-  getDocs,
-  addDoc,
-  deleteDoc,
-  onSnapshot,
-} from "firebase/firestore";
+import { collection, addDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 export default function NewWorkoutForm() {
-  const moviesCollectionRef = collection(db, "movies");
+  const workoutsCollectionRef = collection(db, "workouts");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const auth = getAuth();
+  const currentUser = auth.currentUser;
+  const [newWorkoutTitle, setNewWorkoutTitle] = useState("");
+  const [newWorkoutDate, setNewWorkoutDate] = useState("");
+  const [exercise, setExercise] = useState({
+    exerciseName: "",
+    sets: 1,
+    reps: 1,
+    weight: 0,
+  });
 
-  //Create Data
-  //New Movie states:
-  const [newMovieTitle, setNewMovieTitle] = useState("");
-  const [newReleaseDate, setNewReleaseDate] = useState(0);
-  const [isNewMovieOscar, setIsNewMovieOscar] = useState(false);
+  const handleExerciseChange = (field, value) => {
+    setExercise((prevExercise) => ({
+      ...prevExercise,
+      [field]: value,
+    }));
+  };
 
-  const onSubmitMovie = async (e) => {
+  const onSubmitWorkout = async (e) => {
     e.preventDefault();
     try {
       setError("");
-      await addDoc(moviesCollectionRef, {
-        title: newMovieTitle,
-        releaseDate: newReleaseDate,
-        receivedAnOscar: isNewMovieOscar,
-      });
-      //   setNewMovieTitle("");
-      //   setNewReleaseDate(0);
-      //   setIsNewMovieOscar(false);
-      navigate("/workouts");
+      if (currentUser) {
+        const userUid = currentUser.uid;
+        await addDoc(workoutsCollectionRef, {
+          userId: userUid,
+          title: newWorkoutTitle,
+          date: newWorkoutDate,
+          exercises: [exercise],
+        });
+        navigate("/workouts");
+      }
     } catch (err) {
       console.error(err);
     }
   };
+
   return (
     <>
       <h1>Add Workouts</h1>
@@ -51,39 +56,84 @@ export default function NewWorkoutForm() {
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <Card>
             <Card.Body>
-              <h2 className="text-center mb-4">Add Movie</h2>
+              <h2 className="text-center mb-4">Add Workout</h2>
               {error && <Alert variant="danger">{error}</Alert>}
-              <Form onSubmit={onSubmitMovie}>
+              <Form onSubmit={onSubmitWorkout}>
                 <Form.Group>
-                  <Form.Label>Movie Title</Form.Label>
+                  <Form.Label>Workout Title</Form.Label>
                   <Form.Control
                     type="text"
-                    placeholder="Enter movie title..."
-                    value={newMovieTitle}
-                    onChange={(e) => setNewMovieTitle(e.target.value)}
+                    placeholder="Enter workout title..."
+                    value={newWorkoutTitle}
+                    onChange={(e) => setNewWorkoutTitle(e.target.value)}
                     required
                   />
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label>Release Date</Form.Label>
+                  <Form.Label>Date</Form.Label>
+                  <Form.Control
+                    type="date"
+                    value={newWorkoutDate}
+                    onChange={(e) => setNewWorkoutDate(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Exercise Name</Form.Label>
+                  <Form.Control
+                    type="text"
+                    placeholder="Enter exercise name..."
+                    value={exercise.exerciseName}
+                    onChange={(e) =>
+                      handleExerciseChange("exerciseName", e.target.value)
+                    }
+                    required
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Label>Number of Sets</Form.Label>
                   <Form.Control
                     type="number"
-                    placeholder="Enter release date..."
-                    value={newReleaseDate}
-                    onChange={(e) => setNewReleaseDate(Number(e.target.value))}
+                    placeholder="Enter the number of sets (e.g., 3)"
+                    value={exercise.sets}
+                    onChange={(e) =>
+                      handleExerciseChange("sets", Number(e.target.value))
+                    }
                     required
                   />
                 </Form.Group>
-                <Form.Group>
-                  <Form.Check
-                    type="checkbox"
-                    checked={isNewMovieOscar}
-                    onChange={(e) => setIsNewMovieOscar(e.target.checked)}
-                    label="Received an Oscar"
-                  />
-                </Form.Group>
-                <Button className="w-100" type="submit">
-                  Add Movie
+                {exercise.sets > 0 && (
+                  <div>
+                    <Form.Group>
+                      <Form.Label>Reps</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter reps (e.g., 8)"
+                        value={exercise.reps}
+                        onChange={(e) =>
+                          handleExerciseChange("reps", Number(e.target.value))
+                        }
+                        required
+                      />
+                    </Form.Group>
+                    <Form.Group>
+                      <Form.Label>Weight (lbs)</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter weight (e.g., 50)"
+                        value={exercise.weight}
+                        onChange={(e) =>
+                          handleExerciseChange("weight", Number(e.target.value))
+                        }
+                        required
+                      />
+                    </Form.Group>
+                  </div>
+                )}
+                {/* Commented out the "Add Exercise" button */}
+                {/* <Button onClick={addExercise}>Add Exercise</Button> */}
+                <Button className="w-100 mt-2" type="submit">
+                  Add Workout
                 </Button>
               </Form>
             </Card.Body>

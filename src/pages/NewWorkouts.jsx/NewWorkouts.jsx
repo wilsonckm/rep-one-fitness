@@ -6,7 +6,6 @@ export default function NewWorkouts() {
   return (
     <>
       <NavBarUser />
-      <div>NewWorkouts</div>
       <NewWorkoutForm />
     </>
   );
