@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { collection, onSnapshot, deleteDoc, doc } from "firebase/firestore";
+import { collection, onSnapshot, deleteDoc } from "firebase/firestore";
 import { db } from "../../firebase";
-import WorkoutItem from "../WorkoutItem/WorkoutItem"; // Update the path to the WorkoutItem component
-import { Button } from "react-bootstrap"; // Import Button component from react-bootstrap
+import WorkoutItem from "../WorkoutItem/WorkoutItem";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function WorkoutsList() {
-  const [workoutList, setWorkoutList] = useState([]); // Update state variable name
-  const workoutsCollectionRef = collection(db, "workouts"); // Update the collection reference
+  const [workoutList, setWorkoutList] = useState([]);
+  const workoutsCollectionRef = collection(db, "workouts");
 
   useEffect(() => {
     const unsubscribe = onSnapshot(workoutsCollectionRef, (querySnapshot) => {
@@ -25,7 +26,7 @@ function WorkoutsList() {
 
   const handleDeleteWorkout = async (workoutId) => {
     try {
-      await deleteDoc(doc(db, "workouts", workoutId));
+      await deleteDoc(workoutsCollectionRef.doc(workoutId));
     } catch (error) {
       console.error("Error deleting workout:", error);
     }
@@ -42,9 +43,9 @@ function WorkoutsList() {
           >
             Delete Workout
           </Button>
-          <Button variant="primary" className="ml-2">
+          <Link to={`/edit/${workout.id}`} className="btn btn-primary">
             Edit Workout
-          </Button>
+          </Link>
         </div>
       ))}
     </div>

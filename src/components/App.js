@@ -14,6 +14,7 @@ import NewWorkouts from "../pages/NewWorkouts.jsx/NewWorkouts";
 import NavBarUser from "./NavBar/NavBarUser";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
+import EditWorkout from "../pages/EditWorkout/EditWorkout";
 
 function App() {
   return (
@@ -57,6 +58,14 @@ function App() {
             element={
               <PrivateRoute>
                 <NewWorkouts />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit/:workoutId"
+            element={
+              <PrivateRoute>
+                <EditWorkout />
               </PrivateRoute>
             }
           />
