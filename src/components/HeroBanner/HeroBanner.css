@@ -1,0 +1,22 @@
+.hero-banner {
+  background: url("https://images.squarespace-cdn.com/content/v1/570084ed62cd94d3a2ac2196/1555388710371-3H3HHF31X20Q6LN8KDRX/WCKM-4-2.jpg")
+    center/cover no-repeat;
+  color: #fff;
+  padding: 250px 0;
+  text-align: center;
+}
+
+.hero-banner h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-banner p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.hero-banner .btn-primary {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
