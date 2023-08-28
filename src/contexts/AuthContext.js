@@ -41,6 +41,7 @@ export function AuthProvider({ children }) {
     return sendPasswordResetEmail(auth, Email);
   }
 
+  ////Feature to be developed
   //   //Update email
   //   function updateEmailFunction(Email) {
   //     return updateEmail(currentUser, Email);

@@ -12,7 +12,7 @@ export default function NavBarGuest() {
         <Container>
           <Navbar.Brand>
             <Link className="nav-link" to="/">
-              Exercise co
+              Exercise Co
             </Link>
           </Navbar.Brand>
           <Nav className="ml-auto">

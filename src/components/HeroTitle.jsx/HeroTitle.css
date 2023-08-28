@@ -1,0 +1,20 @@
+.hero-title {
+  color: #000000;
+  padding: 250px 0;
+  text-align: left;
+}
+
+.hero-title h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero-title p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.hero-title .btn-primary {
+  font-size: 1.2rem;
+  padding: 5px 20px;
+}
