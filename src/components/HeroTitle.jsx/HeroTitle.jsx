@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./HeroTitle.css";
+import { Link } from "react-router-dom";
 
 export default function HeroTitle() {
   return (
@@ -11,11 +12,13 @@ export default function HeroTitle() {
             <h1>Training made social.</h1>
           </div>
 
-          <div className="d-flex justify-content-between">
+          <div className="d-lg-flex justify-content-between">
             <span>
               <p>Keep track of workouts, see what others are doing.</p>
             </span>
-            <Button variant="primary">Learn More</Button>
+            <Link to="/about">
+              <Button variant="outline-dark">Learn More</Button>
+            </Link>
           </div>
         </Container>
       </div>

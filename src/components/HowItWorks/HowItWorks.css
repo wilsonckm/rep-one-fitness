@@ -6,12 +6,17 @@
 
 .hero-howitworks h1 {
   font-size: 3rem;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .hero-howitworks p {
   font-size: 1.25rem;
   margin-bottom: 30px;
+}
+
+.steps-title {
+  font-size: 1.75rem;
+  font-weight: bold;
 }
 
 .hero-howitworks .btn-primary {

@@ -1,4 +1,26 @@
 .footer-spacing {
-  color: #fff;
+  color: #ffffff;
   /* padding: 10px 0; */
+}
+
+.footer-banner {
+  background-color: black;
+  color: #ffffff;
+  padding: 250px 0;
+  /* text-align: center; */
+}
+
+.footer-banner h1 {
+  font-size: 5rem;
+  margin-bottom: 20px;
+}
+
+.footer-banner p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.footer-banner .btn-primary {
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }

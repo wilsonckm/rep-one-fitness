@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import HeroTitle from "../../components/HeroTitle.jsx/HeroTitle";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
+import Reviews from "../../components/Reviews/Reviews";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroTitle />
       <HeroBanner />
       <HowItWorks />
+      <Reviews />
       <Footer />
     </>
   );
