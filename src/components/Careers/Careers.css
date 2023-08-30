@@ -1,0 +1,20 @@
+.careers-banner {
+  background-color: rgb(255, 255, 255);
+  color: #000000;
+  padding: 45px;
+}
+
+.careers-banner h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.careers-banner p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.careers-banner .btn-primary {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
