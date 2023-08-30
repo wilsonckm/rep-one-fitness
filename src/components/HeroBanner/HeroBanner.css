@@ -1,6 +1,5 @@
 .hero-banner {
-  background: url("https://images.squarespace-cdn.com/content/v1/570084ed62cd94d3a2ac2196/1555388710371-3H3HHF31X20Q6LN8KDRX/WCKM-4-2.jpg")
-    center/cover no-repeat;
+  background: url("../../assets/stock3.jpg") center/cover no-repeat;
   color: #fff;
   padding: 250px 0;
   text-align: center;

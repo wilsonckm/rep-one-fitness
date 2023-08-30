@@ -1,11 +1,11 @@
 .footer-spacing {
-  color: #ffffff;
+  color: #000000;
   /* padding: 10px 0; */
 }
 
 .footer-banner {
   background-color: black;
-  color: #ffffff;
+  color: #000000;
   padding: 250px 0;
   /* text-align: center; */
 }
@@ -23,4 +23,16 @@
 .footer-banner .btn-primary {
   font-size: 1.2rem;
   padding: 10px 20px;
+}
+
+.banner1 {
+  background: url("../../assets/stock3.jpg") center/cover no-repeat;
+}
+
+.banner2 {
+  background: url("../../assets/stock4.jpg") center/cover no-repeat;
+}
+
+.banner3 {
+  background: url("../../assets/stock5.jpg") center/cover no-repeat;
 }

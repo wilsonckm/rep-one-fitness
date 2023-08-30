@@ -1,4 +1,3 @@
-import { Container } from "react-bootstrap";
 import Signup from "./Signup/Signup";
 import { AuthProvider } from "../contexts/AuthContext";
 import { Routes, Route } from "react-router-dom";
@@ -11,7 +10,6 @@ import UpdateProfile from "./UpdateProfile/UpdateProfile";
 import Home from "../pages/Home/Home";
 import Workouts from "../pages/Workouts/Workouts";
 import NewWorkouts from "../pages/NewWorkouts.jsx/NewWorkouts";
-import NavBarUser from "./NavBar/NavBarUser";
 import About from "../pages/About/About";
 import Contact from "../pages/Contact/Contact";
 import EditWorkout from "../pages/Edit/EditWorkout";

@@ -1,0 +1,20 @@
+.contact-content {
+  color: #000000;
+  padding: 100px 0;
+  text-align: left;
+}
+
+.contact-content h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+.contact-content p {
+  font-size: 1.25rem;
+  margin-bottom: 30px;
+}
+
+.contact-content .btn-primary {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}

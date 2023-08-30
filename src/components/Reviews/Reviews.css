@@ -1,8 +1,8 @@
 .user-reviews {
-  color: #000000;
+  color: #ffffff;
   padding: 100px 0;
   text-align: center;
-  background-color: #f7f7f7; /* Add a background color for differentiation */
+  background: url("../../assets/stock2.jpg") center/cover no-repeat;
 }
 
 .user-reviews h2 {
@@ -16,7 +16,7 @@
 }
 
 .user-reviews .carousel {
-  margin-top: 50px; /* Adjust spacing between hero and reviews */
+  margin-top: 50px;
 }
 
 .user-reviews .steps-title {

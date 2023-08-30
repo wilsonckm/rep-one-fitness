@@ -149,6 +149,7 @@ export default function NewWorkoutForm() {
                             required
                           />
                         </Form.Group>
+                        <hr />
                       </div>
                     )}
                   </div>
