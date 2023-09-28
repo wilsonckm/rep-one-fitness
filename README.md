@@ -1,5 +1,10 @@
 # Exercise Co
-Workout/Exercise Tracker
+Single-page exercise webapp to allow authenticated users to keep track of exercises
+
+### Goals:
+1. Implement CRUD operations with Firebase
+2. Implement user authentication and Firebase security rules
+3. Apply user interface using Bootstrap
 
 ## About
 Exercise Co is a fictional web application that performs CRUD operations for authorized users. 
