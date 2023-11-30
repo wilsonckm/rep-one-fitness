@@ -12,7 +12,7 @@ Exercise Co is a fictional web application that performs CRUD operations for aut
 Tech Stack: React, Firebase, Bootstrap, Nodejs
 
 Live Link: https://auth-development-f49e4.web.app/
-How to run: 
+## How to run: 
 npm install
 npm start
 
