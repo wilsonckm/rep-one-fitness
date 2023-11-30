@@ -14,6 +14,7 @@ Tech Stack: React, Firebase, Bootstrap, Nodejs
 Live Link: https://auth-development-f49e4.web.app/
 ## How to run: 
 npm install
+
 npm start
 
 ## Contact
